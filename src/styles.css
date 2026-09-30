@@ -90,4 +90,40 @@ input, textarea, select { border: 1px solid var(--line); border-radius: 5px; bac
 .clue-panel { min-width: 0; }.unresolved { color: var(--coral); font: 10px 'DM Mono', monospace; padding-top: 8px; }.unresolved i { display: inline-block; width: 6px; height: 6px; background: var(--coral); border-radius: 50%; }.clue-list { display: grid; gap: 11px; min-height: 105px; }.clue-row { display: grid; grid-template-columns: 25px 1fr auto; gap: 8px; align-items: center; }.clue-symbol { color: #a88abd; font-size: 20px; }.clue-row div { display: grid; gap: 3px; min-width: 0; }.clue-row strong { font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }.clue-row span { color: var(--muted); font-size: 10px; }.clue-row b { color: #c4b8aa; padding: 0 3px; }.clue-row em { background: #fbefd9; color: #a36e27; white-space: nowrap; }.clue-row em.resolved { background: #e4efe5; color: #66826a; }.clue-form { flex-wrap: wrap; }.clue-form input { width: 100%; }.clue-form select { flex: 1; min-width: 0; }.clue-form button { padding: 9px 10px; }
 .inspector { position: sticky; top: 22px; }.inspector-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }.inspector h2 { max-width: 210px; line-height: 1.2; }.edit-state { color: #628066; font: 10px 'DM Mono', monospace; background: #e4efe5; padding: 5px 7px; border-radius: 3px; }.inspector label, .field-block { display: grid; gap: 7px; margin-top: 17px; }.inspector label, .field-label { color: var(--muted); font-size: 11px; }.inspector textarea { resize: vertical; line-height: 1.5; }.person-toggles { display: flex; flex-wrap: wrap; gap: 6px; }.person-toggle { display: inline-flex; align-items: center; gap: 5px; border: 1px solid var(--line); border-radius: 14px; background: #fffefa; padding: 4px 8px 4px 4px; color: var(--muted); font-size: 10px; }.person-toggle span { display: grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; background: #e9e3da; color: #fff; }.person-toggle.selected { color: #fff; border-color: transparent; }.person-toggle.selected span { background: #ffffff55; }.order-controls { border-top: 1px solid var(--line); margin-top: 22px; padding-top: 16px; display: flex; align-items: center; gap: 6px; }.order-controls span { margin-right: auto; color: var(--muted); font-size: 11px; }.order-controls button { border: 1px solid var(--line); background: #fffefa; border-radius: 4px; padding: 6px 8px; color: var(--ink); font-size: 10px; }.order-controls button:disabled { opacity: .35; cursor: not-allowed; }.empty-inspector { min-height: 220px; }.empty-inspector p { color: var(--muted); font-size: 12px; line-height: 1.6; }
 .app-loading { min-height: 100vh; display: grid; place-content: center; justify-items: center; color: var(--muted); }.app-loading p { font-size: 12px; }
+.scene-tags .prereq-tag { background: #ece6f5; color: #7a6299; }
+.scene-tags .depended-tag { background: #f7ecd6; color: #9a6f2b; }
+.scene-tags .broken-tag { background: #fbe6df; color: #c14a31; font-weight: 600; }
+.scene-node.conflict .scene-copy { border-color: #e7b3a3; background: #fdf3ef; }
+.scene-node.conflict .scene-dot { border-color: var(--coral); background: var(--coral); box-shadow: 0 0 0 4px #f8e0d6; }
+.scene-node.conflict .scene-meta { color: #c1593f; }
+.conflict-banner { background: #fbe6df; border: 1px solid #efc3b4; color: #9d4c3b; border-radius: 6px; padding: 11px 13px; margin-bottom: 13px; display: grid; gap: 8px; }
+.conflict-banner-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.conflict-banner-head strong { font-size: 12px; }
+.conflict-undo { border: 0; border-radius: 4px; background: var(--ink); color: #fffaf1; font-size: 10px; padding: 6px 10px; white-space: nowrap; }
+.conflict-undo:hover { filter: brightness(.92); }
+.conflict-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; }
+.conflict-list li { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 11px; }
+.conflict-scene-link { border: 0; background: none; padding: 0; color: #c14a31; font-size: 11px; text-decoration: underline; text-underline-offset: 2px; }
+.conflict-scene-link:hover { color: #9d3826; }
+.conflict-arrow { color: #c98a78; font: 10px 'DM Mono', monospace; }
+.conflict-before { color: #c98a78; }
+.conflict-drop { margin-left: auto; border: 1px solid #e7b3a3; background: #fff8f5; color: #b1543f; border-radius: 4px; font-size: 10px; padding: 3px 7px; white-space: nowrap; }
+.conflict-drop:hover { background: #fdeee8; }
+.conflict-hint { margin: 0; font-size: 10px; color: #c08274; }
+.dependency-block { gap: 9px; }
+.dependency-list { display: grid; gap: 5px; }
+.dependency-empty { color: var(--muted); font-size: 10px; line-height: 1.6; }
+.dependency-row { display: flex; gap: 6px; align-items: center; }
+.dependency-jump { flex: 1; text-align: left; border: 1px solid var(--line); background: #fffefa; border-radius: 4px; padding: 6px 8px; font-size: 11px; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dependency-jump:hover { background: #f5f0e8; border-color: #d8cfc1; }
+.dependency-remove { border: 0; background: none; color: var(--muted); font-size: 11px; padding: 2px 4px; }
+.dependency-remove:hover { color: var(--coral); }
+.dependency-add { display: flex; gap: 6px; }
+.dependency-add select { flex: 1; min-width: 0; font-size: 11px; padding: 7px 8px; }
+.dependency-add button { border: 0; background: var(--ink); color: #fffaf1; border-radius: 4px; font-size: 10px; padding: 7px 9px; white-space: nowrap; }
+.dependency-add button:disabled { opacity: .4; cursor: not-allowed; }
+.depended-note { background: #f7ecd6; color: #8a6427; font-size: 10px; line-height: 1.6; border-radius: 4px; padding: 7px 9px; }
+.depended-note b { font-weight: 600; }
+.delete-scene-button { color: var(--coral) !important; border-color: #ecc9be !important; }
+.delete-scene-button:hover { background: #fbe6df; }
 @media (max-width: 1220px) { .content-wrap { padding-left: 25px; padding-right: 25px; }.topbar { padding: 0 25px; }.work-grid { grid-template-columns: minmax(500px, 1fr) 285px; }.lower-grid { grid-template-columns: 1fr; } }

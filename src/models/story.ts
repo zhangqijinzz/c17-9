@@ -15,6 +15,8 @@ export interface StoryScene {
   conflict: string;
   characterIds: string[];
   clueIds: string[];
+  /** 前置场景：本幕必须排在这些场景之后。场景也可以依赖多幕。 */
+  prerequisiteSceneIds: string[];
 }
 
 export interface StoryClue {
@@ -72,6 +74,7 @@ export function createStarterStory(): StoryDocument {
         conflict: '她必须决定是否相信一封不可能寄出的信。',
         characterIds: [miraId],
         clueIds: [firstLetterId],
+        prerequisiteSceneIds: [],
       },
       {
         id: 'scene-storm',
@@ -81,6 +84,8 @@ export function createStarterStory(): StoryDocument {
         conflict: '两人对罗盘的来历各执一词。',
         characterIds: [miraId, 'character-june'],
         clueIds: [],
+        // 裘恩正是循着来信登塔，风暴夜必须发生在来信之后。
+        prerequisiteSceneIds: [oldHarborId],
       },
     ],
     clues: [
