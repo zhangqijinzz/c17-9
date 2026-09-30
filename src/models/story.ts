@@ -24,6 +24,13 @@ export interface StoryClue {
   payoffSceneId: string;
 }
 
+/** 前置依赖：sceneId 必须排在 prerequisiteSceneId 之后 */
+export interface SceneDependency {
+  id: string;
+  sceneId: string;
+  prerequisiteSceneId: string;
+}
+
 export interface StoryDocument {
   version: 1;
   id: string;
@@ -32,6 +39,7 @@ export interface StoryDocument {
   characters: StoryCharacter[];
   scenes: StoryScene[];
   clues: StoryClue[];
+  dependencies: SceneDependency[];
   selectedSceneId: string;
   updatedAt: string;
 }
@@ -53,6 +61,7 @@ export function createId(prefix: string): string {
 export function createStarterStory(): StoryDocument {
   const miraId = 'character-mira';
   const oldHarborId = 'scene-old-harbor';
+  const stormId = 'scene-storm';
   const firstLetterId = 'clue-first-letter';
   return {
     version: 1,
@@ -74,7 +83,7 @@ export function createStarterStory(): StoryDocument {
         clueIds: [firstLetterId],
       },
       {
-        id: 'scene-storm',
+        id: stormId,
         title: '风暴前夜',
         order: 2,
         summary: '裘恩抵达灯塔，带来一枚从沉船上找到的铜制罗盘。',
@@ -90,6 +99,9 @@ export function createStarterStory(): StoryDocument {
         setupSceneId: oldHarborId,
         payoffSceneId: '',
       },
+    ],
+    dependencies: [
+      { id: 'dependency-storm-after-harbor', sceneId: stormId, prerequisiteSceneId: oldHarborId },
     ],
     selectedSceneId: oldHarborId,
     updatedAt: new Date().toISOString(),
